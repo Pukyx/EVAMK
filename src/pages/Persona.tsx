@@ -17,10 +17,10 @@ export const FormularioPersona = () => {
     };
 
     const handleRegistrar = () => {
-        const { nombre, apellido, fechaNacimiento, email, contrasenia, maquillaje, genero, favorito, terminos } = persona;
+        const { nombre, apellido, fechaNacimiento, email, maquillaje, genero, favorito, terminos } = persona;
       
         // Validación de campos obligatorios
-        if (!nombre || !apellido || !fechaNacimiento || !email || !contrasenia || !maquillaje || !genero || !favorito || !terminos) {
+        if (!nombre || !apellido || !fechaNacimiento || !email  || !maquillaje || !genero || !favorito || !terminos) {
           alert("Por favor, complete todos los campos obligatorios.");
           return;
         }

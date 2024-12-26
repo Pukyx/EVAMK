@@ -16,7 +16,6 @@ export const obtenerPersonas = async () => {
       nombre: doc.data().nombre,
       apellido: doc.data().apellido,
       email: doc.data().email,
-      contrasenia: doc.data().contrasenia,
       fechaNacimiento: doc.data().fechaNacimiento,
       genero: doc.data().genero,
       maquillaje: doc.data().maquillaje,
@@ -39,7 +38,6 @@ export const obtenerPersona = async (key: string) => {
       nombre: docSnap.data().nombre,
       apellido: docSnap.data().apellido,
       email: docSnap.data().email,
-      contrasenia: docSnap.data().contrasenia,
       fechaNacimiento: docSnap.data().fechaNacimiento,
       genero: docSnap.data().genero,
       maquillaje: docSnap.data().maquillaje,
@@ -60,7 +58,6 @@ export const modificarPersona = async (persona: Persona) => {
     nombre: persona.nombre,
     apellido: persona.apellido,
     email: persona.email,
-    contrasenia: persona.contrasenia,
     fechaNacimiento: persona.fechaNacimiento,
     genero: persona.genero,
     maquillaje: persona.maquillaje,
@@ -76,7 +73,14 @@ export const eliminarPersona = async (key: string) => {
 };
 
 // Verificar si existe un Usuario con las credenciales proporcionadas
+// Verificar si existe un Usuario con las credenciales proporcionadas
 export const verificarUsuario = async (username: string, password: string) => {
+  // Validación explícita para admin/admin
+  if (username === "admin" && password === "admin") {
+    return true; // Acceso permitido
+  }
+
+  // Validación contra la base de datos de usuarios
   const querySnapshot = await getDocs(collection(db, "usuarios"));
   let eUsuario = false;
 
@@ -88,6 +92,7 @@ export const verificarUsuario = async (username: string, password: string) => {
   });
   return eUsuario;
 };
+
 
 // Registrar un nuevo Usuario
 export const registrarUsuario = async (usuario: Usuario) => {

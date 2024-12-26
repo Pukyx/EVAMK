@@ -5,7 +5,6 @@ export const initialSatePersona: Persona = {
     apellido: "",
     fechaNacimiento: "",
     email: "",
-    contrasenia: "",
     maquillaje: "",
     genero: "",
     favorito: "",

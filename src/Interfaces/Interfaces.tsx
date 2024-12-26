@@ -3,7 +3,6 @@ export interface Persona {
   apellido: string;
   fechaNacimiento?: string;
   email: string;
-  contrasenia: string;
   maquillaje?: string;
   genero?: string;
   favorito?: string;
