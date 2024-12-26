@@ -24,6 +24,7 @@ export const FormularioPersona = () => {
             .then(() => {
                 alert("Registrado con éxito!");
                 window.location.reload();
+                
             })
             .catch((e) => {
                 alert("Algo ocurrió");
